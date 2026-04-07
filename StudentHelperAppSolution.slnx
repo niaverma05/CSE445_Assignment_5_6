@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="StudentHelperApp/StudentHelperApp.csproj" />
+  <Project Path="StudentHelperLib/StudentHelperLib.csproj" />
+</Solution>
