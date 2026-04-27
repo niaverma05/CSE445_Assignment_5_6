@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="86975974-a70d-43cf-9327-117accba9c66" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:61074/UnitConverter.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="UnitConverter.xsd" MetadataType="Schema" ID="66eb0707-748f-4bc1-897c-5968482d0268" SourceId="1" SourceUrl="http://localhost:61074/UnitConverter.svc?xsd=xsd0" />
+    <MetadataFile FileName="UnitConverter1.xsd" MetadataType="Schema" ID="15fb9820-fc78-4298-9cd4-e406810808fb" SourceId="1" SourceUrl="http://localhost:61074/UnitConverter.svc?xsd=xsd1" />
+    <MetadataFile FileName="UnitConverterService.wsdl" MetadataType="Wsdl" ID="67a445e9-b38f-453f-8f14-da2b987ce3cd" SourceId="1" SourceUrl="http://localhost:61074/UnitConverter.svc?wsdl" />
+    <MetadataFile FileName="UnitConverter.disco" MetadataType="Disco" ID="0e7c7c4d-f067-4e75-ba73-1a0a45155f31" SourceId="1" SourceUrl="http://localhost:61074/UnitConverter.svc?disco" />
+    <MetadataFile FileName="UnitConverter.wsdl" MetadataType="Wsdl" ID="7fe7a671-c9ae-4519-8482-890d780b4616" SourceId="1" SourceUrl="http://localhost:61074/UnitConverter.svc?wsdl=wsdl0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

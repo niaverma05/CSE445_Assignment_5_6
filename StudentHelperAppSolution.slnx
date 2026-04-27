@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="StudentHelperApp/StudentHelperApp.csproj" Id="26be9bf3-18cf-4edd-a461-ea0ec62e83c1">
+    <BuildDependency Project="UnitConverterService/UnitConverterService.csproj" />
+  </Project>
+  <Project Path="StudentHelperLib/StudentHelperLib.csproj" Id="eb4caf2d-5654-430a-b688-01bdc4acfb18" />
+  <Project Path="UnitConverterService/UnitConverterService.csproj" Id="a1b2c3d4-e5f6-7890-abcd-ef1234567890" />
+  <Project Path="ValidationLib/ValidationLib.csproj" Id="9b45a12a-27b6-4754-8522-c671bd4d2f32" />
+</Solution>
