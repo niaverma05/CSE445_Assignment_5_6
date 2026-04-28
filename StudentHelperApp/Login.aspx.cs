@@ -161,14 +161,5 @@ namespace StudentHelperApp
             lblMessage.Text = message;
             lblMessage.CssClass = "msg-error";
         }
-
-        protected void btnTestHash_Click(object sender, EventArgs e)
-        {
-            string hash1 = SecurityHelper.HashPassword("Cse445!");
-            string hash2 = SecurityHelper.HashPassword("test1pass");
-            lblHashResult.Text =
-                "Hash of Cse445!: " + hash1 + "<br />" +
-                "Hash of test1pass: " + hash2;
-        }
     }
 }
