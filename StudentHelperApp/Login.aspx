@@ -143,11 +143,6 @@
         Staff &nbsp;: username <code>TA</code> &nbsp;&nbsp;&nbsp;/ password <code>Cse445!</code>
     </div>
 
-    <hr class="divider" />
-    <asp:Button ID="btnTestHash" runat="server" Text="Test Hash (temp)" 
-        OnClick="btnTestHash_Click" />
-    <asp:Label ID="lblHashResult" runat="server" />
-
 </div>
 </form>
 </body>
