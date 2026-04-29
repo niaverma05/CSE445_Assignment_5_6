@@ -38,8 +38,12 @@ namespace StudentHelperApp
             XmlNode passNode = doc.CreateElement("Password");
             passNode.InnerText = SecurityHelper.HashPassword(password);
 
+            XmlNode registeredNode = doc.CreateElement("Registered");
+            registeredNode.InnerText = DateTime.Now.ToString("yyyy-MM-dd");
+
             newUser.AppendChild(userNode);
             newUser.AppendChild(passNode);
+            newUser.AppendChild(registeredNode);
 
             root.AppendChild(newUser);
             doc.Save(memberPath);

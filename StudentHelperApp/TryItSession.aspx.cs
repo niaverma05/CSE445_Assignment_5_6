@@ -7,10 +7,28 @@ namespace StudentHelperApp
 {
     public partial class TryItSession : System.Web.UI.Page
     {
-        private const string SESSION_KEY = "StudyPlanEntries";
+        private string CurrentUser
+        {
+            get
+            {
+                object user = Session["User"];
+                return user == null ? null : user.ToString();
+            }
+        }
+
+        private string StudyPlanSessionKey
+        {
+            get { return SessionKeys.GetStudyPlanEntriesKey(CurrentUser); }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+         if (Session["User"] == null)
+            {
+                Response.Redirect("Login.aspx");
+                return;
+            }
+
             lblSessionId.Text = "Session ID: " + Session.SessionID;
             DisplaySessionData();
         }
@@ -51,7 +69,7 @@ namespace StudentHelperApp
                 AddedAt = DateTime.Now
             });
 
-            Session[SESSION_KEY] = entries;
+            Session[StudyPlanSessionKey] = entries;
 
             txtCourseName.Text = "";
             txtCreditHours.Text = "";
@@ -65,14 +83,14 @@ namespace StudentHelperApp
 
         protected void btnClearSession_Click(object sender, EventArgs e)
         {
-            Session.Remove(SESSION_KEY);
+            Session.Remove(StudyPlanSessionKey);
             lblStatus.Text = "Session data cleared.";
             DisplaySessionData();
         }
 
         private List<StudyEntry> GetSessionEntries()
         {
-            object obj = Session[SESSION_KEY];
+            object obj = Session[StudyPlanSessionKey];
             if (obj != null && obj is List<StudyEntry>)
             {
                 return (List<StudyEntry>)obj;
@@ -86,7 +104,11 @@ namespace StudentHelperApp
 
             if (entries.Count == 0)
             {
-                litSessionData.Text = "No courses stored in session yet. Add some above!";
+                string who = string.IsNullOrEmpty(CurrentUser)
+                    ? "(anonymous session)"
+                    : ("for user: <strong>" + HttpUtility.HtmlEncode(CurrentUser) + "</strong>");
+
+                litSessionData.Text = "No courses stored in session yet " + who + ". Add some above!";
                 return;
             }
 

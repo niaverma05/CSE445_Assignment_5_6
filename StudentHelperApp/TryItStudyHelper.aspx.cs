@@ -1,6 +1,4 @@
 using System;
-using System.IO;
-using System.Net;
 using System.Text;
 using System.Web;
 
@@ -8,35 +6,21 @@ namespace StudentHelperApp
 {
     public partial class TryItStudyHelper : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        private string CurrentUser
         {
+            get
+            {
+                object user = Session["User"];
+                return user == null ? null : user.ToString();
+            }
         }
 
-        protected void btnHealthCheck_Click(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            try
+           if (Session["User"] == null)
             {
-                string baseUrl = Request.Url.GetLeftPart(UriPartial.Authority)
-                    + Request.ApplicationPath.TrimEnd('/');
-                string url = baseUrl + "/StudyHelperService.svc/HealthCheck";
-
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
-                req.Method = "GET";
-                req.Accept = "application/json";
-                req.Timeout = 10000;
-
-                using (HttpWebResponse resp = (HttpWebResponse)req.GetResponse())
-                using (StreamReader reader = new StreamReader(resp.GetResponseStream()))
-                {
-                    string body = reader.ReadToEnd();
-                    lblHealthStatus.Text = " Service OK: " + body;
-                    lblHealthStatus.CssClass = "status-ok";
-                }
-            }
-            catch (Exception ex)
-            {
-                lblHealthStatus.Text = " Service error: " + ex.Message;
-                lblHealthStatus.CssClass = "status-err";
+                Response.Redirect("Login.aspx");
+                return;
             }
         }
 
@@ -54,6 +38,9 @@ namespace StudentHelperApp
                 var service = new StudyHelperService();
                 string recommendation = service.GetStudyRecommendation(credits);
                 lblQuickResult.Text = recommendation;
+
+                // Integration: store the last recommendation in session (per logged-in user when available)
+                Session[SessionKeys.GetLastStudyRecommendationKey(CurrentUser)] = recommendation;
             }
             catch (Exception ex)
             {
@@ -98,6 +85,9 @@ namespace StudentHelperApp
 
                 var service = new StudyHelperService();
                 StudyPlan plan = service.GenerateStudyPlan(request);
+
+                // Integration: store the last generated plan in session (per logged-in user when available)
+                Session[SessionKeys.GetStudyPlanEntriesKey(CurrentUser)] = plan;
 
                 StringBuilder sb = new StringBuilder();
                 sb.Append("<table class='plan'>");

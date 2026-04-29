@@ -29,6 +29,12 @@ namespace StudentHelperApp
                 lblSessionInfo.Text = Server.HtmlEncode(Session["User"].ToString());
                 lblSessionId.Text = Session.SessionID;
 
+                object lastRecObj = Session[SessionKeys.GetLastStudyRecommendationKey(Session["User"].ToString())];
+                if (lastRecObj != null)
+                {
+                    lblSessionInfo.Text += " | Last Study Rec (from Session): " + Server.HtmlEncode(lastRecObj.ToString());
+                }
+
                 HttpCookie cookie = Request.Cookies[UsernameCookieName];
                 if (cookie != null && !string.IsNullOrEmpty(cookie["Username"]))
                 {

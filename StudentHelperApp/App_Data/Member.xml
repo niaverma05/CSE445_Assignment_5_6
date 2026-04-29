@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Users>
-	<User>
-		<Username>test1</Username>
-		<Password>d55f661526b004d3a9cc4e7bc9542fc624da3784285b262960cd4605324e03e5</Password>
-		<Registered>2026-04-27</Registered>
-	</User>
+  <User>
+    <Username>test1</Username>
+    <Password>d55f661526b004d3a9cc4e7bc9542fc624da3784285b262960cd4605324e03e5</Password>
+    <Registered>2026-04-27</Registered>
+  </User>
+  <User>
+    <Username>denssumesh</Username>
+    <Password>b422e7f65528b7a853254959a8cce6d1c6b00f8819dddcbadcaefc284c950fad</Password>
+    <Registered>2026-04-28</Registered>
+  </User>
 </Users>

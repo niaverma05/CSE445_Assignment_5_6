@@ -90,13 +90,6 @@
         </p>
 
         <div class="section">
-            <h3>Service Health Check</h3>
-            <asp:Button ID="btnHealthCheck" runat="server" Text="Check Service Status"
-                CssClass="btn" OnClick="btnHealthCheck_Click" />
-            <asp:Label ID="lblHealthStatus" runat="server" />
-        </div>
-
-        <div class="section">
             <h3>Quick Study Recommendation</h3>
             <p class="info">
                 Enter total credit hours to get a general study time recommendation.

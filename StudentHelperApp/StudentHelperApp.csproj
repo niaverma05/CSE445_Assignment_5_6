@@ -258,6 +258,7 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SessionKeys.cs" />
     <Compile Include="StudyHelperService.svc.cs">
       <DependentUpon>StudyHelperService.svc</DependentUpon>
     </Compile>
